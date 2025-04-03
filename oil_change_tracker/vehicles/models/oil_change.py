@@ -1,3 +1,6 @@
+from django.db import models
+from vehicle import Vehicle
+
 class OilChangeRecord(models.Model):
     vehicle = models.OneToOneField(Vehicle, on_delete=models.CASCADE, related_name="oil_changes")
     date = models.DateField()
