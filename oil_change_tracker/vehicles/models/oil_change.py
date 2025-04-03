@@ -1,5 +1,5 @@
 class OilChangeRecord(models.Model):
-    vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE, related_name="oil_changes")
+    vehicle = models.OneToOneField(Vehicle, on_delete=models.CASCADE, related_name="oil_changes")
     date = models.DateField()
     mileage = models.PositiveIntegerField()
     next_reminder = models.DateField()
