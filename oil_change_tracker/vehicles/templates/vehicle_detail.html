@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Vehicle Detail</h1>
+
+<a href="{% url 'vehicle_update' vehicle.pk %}">Edit</a>
+
+<h3>vehicle object: {{ vehicle }}</h3>
+<h3>vehicle name: {{ vehicle.name }}</h3>
+<h3>vehicle engine: {{ vehicle.engine }}</h3>
+<h3>Last oil change date: {{ OilChangeRecord.date }}</h3>
+<h3>Last oil change milage: {{ OilChangeRecord.kilometrage }}</h3>
+
+{% endblock %}
