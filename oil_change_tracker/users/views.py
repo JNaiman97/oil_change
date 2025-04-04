@@ -1,5 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import login
+from django.contrib import messages
+from .forms import UserRegisterForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 def register(request):
     if request.method == 'POST':
