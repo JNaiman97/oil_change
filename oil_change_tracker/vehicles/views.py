@@ -53,7 +53,7 @@ class vehicleDeleteView(LoginRequiredMixin, DeleteView):
 class oilChangeCreateView(LoginRequiredMixin, CreateView):
     model = OilChangeRecord
     form_class = OilChangeForm
-    template_name = 'oilchange_form.html'
+    template_name = 'oil_change_form.html'
     success_url = reverse_lazy('vehicle_list')
 
     def dispatch(self, request, *args, **kwargs):
@@ -70,7 +70,7 @@ class oilChangeCreateView(LoginRequiredMixin, CreateView):
 class oilChangeUpdateView(LoginRequiredMixin, UpdateView):
     model = OilChangeRecord
     form_class = OilChangeForm
-    template_name = 'oilchange_form.html'
+    template_name = 'oil_change_form.html'
     success_url = reverse_lazy('vehicle_list')
 
     def get_queryset(self):
