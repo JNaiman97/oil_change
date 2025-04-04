@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>vehicle List</h1>
+<h1>Vehicle List</h1>
 <a href="{% url 'vehicle_create' %}">Add new</a>
 
 <ul>
     {% for vehicle in vehicles %}
         <li>
+        {% if vehicle.photo %}
+            <img src="{{ vehicle.photo.url }}" alt="Vehicle photo" width="200">
+        {% else %}
+            <p>No photo available</p>
+        {% endif %}
             <a href="{% url 'vehicle_detail' vehicle.pk %}">{{ vehicle.name }}</a>
             <a href="{% url 'vehicle_confirm_delete' vehicle.pk %}">Delete</a>
         </li>
