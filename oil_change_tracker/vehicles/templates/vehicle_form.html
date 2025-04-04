@@ -3,10 +3,10 @@
 {% block content %}
 <h1>{{ form.instance.pk|yesno:"Edit vehicle,Add vehicle" }}</h1>
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Odoslať</button>
+    <button type="submit">Send</button>
 </form>
 
 {% endblock %}

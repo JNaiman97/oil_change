@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>{{ form.instance.pk|yesno:"Upravit záznam výměny oleje,Přidat záznam výměny oleje" }}</h1>
+<h1>{{ form.instance.pk|yesno:" Edit oil change record, Add oil change record" }}</h1>
 
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Uložit</button>
+    <button type="submit"> Save</button>
 </form>
 {% endblock %}

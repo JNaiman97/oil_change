@@ -3,11 +3,11 @@
 {% block content %}
 <h1>Confirm Deletion</h1>
 
-<p>Are you sure you want to delete vehicle<strong>{{ object.name }}</strong>?</p>
+<p>Are you sure you want to delete vehicle<strong> {{ object.name }}</strong>?</p>
 <form method="post">
   {% csrf_token %}
   <button type="submit">Yes, delete</button>
-  <a href="{% url 'vehicle_list' %}">Cancel</a>
+  <a href="{% url 'vehicle_list' %}"> Cancel</a>
 </form>
 
 {% endblock %}

@@ -13,9 +13,9 @@
     <p>No oil change record yet.</p>
 {% endif %}
 {% if vehicle.oil_changes %}
-    <a href="{% url 'oilchange_edit' vehicle.oil_changes.pk %}">Upravit záznam výměny oleje</a>
+    <a href="{% url 'oilchange_edit' vehicle.oil_changes.pk %}">Edit oil change record</a>
 {% else %}
-    <a href="{% url 'oilchange_add' vehicle.pk %}">Přidat záznam výměny oleje</a>
+    <a href="{% url 'oilchange_add' vehicle.pk %}">Add oil change record</a>
 {% endif %}
 
 
