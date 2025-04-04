@@ -7,12 +7,12 @@ from .forms import VehicleForm
 class vehicleListView(LoginRequiredMixin, ListView):
     model = Vehicle
     template_name = 'vehicle_list.html'
-    context_object_name = 'vehicle'
+    context_object_name = 'vehicles'
 
 class vehicleDetailView(LoginRequiredMixin, DetailView):
     model = Vehicle
     template_name = 'vehicle_detail.html'
-    context_object_name = 'vehicle'
+    context_object_name = 'vehicles'
 
 class vehicleCreateView(LoginRequiredMixin, CreateView):
     model = Vehicle

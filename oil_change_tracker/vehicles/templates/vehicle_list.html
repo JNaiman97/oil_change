@@ -8,7 +8,7 @@
     {% for vehicle in vehicles %}
         <li>
             <a href="{% url 'vehicle_detail' vehicle.pk %}">{{ vehicle.name }}</a>
-            <a href="{% url 'vehicle_delete' vehicle.pk %}">Delete</a>
+            <a href="{% url 'vehicle_confirm_delete' vehicle.pk %}">Delete</a>
         </li>
     {% endfor %}
 </ul>
