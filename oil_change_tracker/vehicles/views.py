@@ -42,6 +42,7 @@ class vehicleUpdateView(LoginRequiredMixin, UpdateView):
     def get_queryset(self):
         return Vehicle.objects.filter(owner=self.request.user)
 
+
 class vehicleDeleteView(LoginRequiredMixin, DeleteView):
     model = Vehicle
     template_name = 'vehicle_confirm_delete.html'

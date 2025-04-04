@@ -12,6 +12,9 @@
 {% else %}
     <p>No oil change record yet.</p>
 {% endif %}
+<div>
+<a href="{% url 'vehicle_edit' vehicle.pk %}">Edit Vehicle</a>
+</div>
 {% if vehicle.oil_changes %}
     <a href="{% url 'oilchange_edit' vehicle.oil_changes.pk %}">Edit oil change record</a>
 {% else %}
