@@ -12,6 +12,9 @@
 
     {% block content %}
     {% endblock %}
+    {% if user.is_authenticated %}
+    <a href="{% url 'vehicle_list' %}">Vehicle_list</a>
+    {% endif %}
 
 </main>
 

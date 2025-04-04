@@ -18,15 +18,15 @@ class vehicleCreateView(LoginRequiredMixin, CreateView):
     model = Vehicle
     form_class = VehicleForm
     template_name = 'vehicle_form.html'
-    success_url = reverse_lazy('vehicle-list')
+    success_url = reverse_lazy('vehicle_list')
 
 class vehicleUpdateView(LoginRequiredMixin, UpdateView):
     model = Vehicle
     form_class = VehicleForm
     template_name = 'vehicle_form.html'
-    success_url = reverse_lazy('vehicle-list')
+    success_url = reverse_lazy('vehicle_list')
 
 class vehicleDeleteView(LoginRequiredMixin, DeleteView):
     model = Vehicle
     template_name = 'vehicle_confirm_delete.html'
-    success_url = reverse_lazy('vehicle-list')
+    success_url = reverse_lazy('vehicle_list')
