@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
 
+
 def home(request):
-    #a = 10 / 0
     return render(request, "home.html")
 
 def about(request):
@@ -10,3 +10,4 @@ def about(request):
 
 def privacy_policy(request):
     return render(request, "privacy_policy.html")
+
