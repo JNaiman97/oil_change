@@ -4,9 +4,10 @@
 <h1>Vehicle Detail</h1>
 
 
-<h3>vehicle name: {{ vehicle.name }}</h3>
-<h3>vehicle model: {{ vehicle.model }}</h3>
-<h3>vehicle engine: {{ vehicle.engine }}</h3>
+<h3>Name: {{ vehicle.name }}</h3>
+<h3>Brand: {{ vehicle.brand }}</h3>
+<h3>Model: {{ vehicle.model }}</h3>
+<h3>Engine: {{ vehicle.engine }}</h3>
 {% if vehicle.oil_changes %}
     <h3>Last oil change date: {{ vehicle.oil_changes.date }}</h3>
     <h3>Last oil change kilometrage: {{ vehicle.oil_changes.kilometrage }}</h3>
