@@ -1,11 +1,14 @@
 import os
 import django
-from django.core.mail import send_mail
-from django.utils import timezone
-from yourapp.models import OilChangeRecord
 
+# Nastavení prostředí Django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "oil_change_tracker.settings")
 django.setup()
+
+from django.core.mail import send_mail
+from django.utils import timezone
+from vehicles.models import OilChangeRecord
+
 
 def send_reminders():
     today = timezone.now().date()
@@ -14,9 +17,9 @@ def send_reminders():
     for record in reminders:
         send_mail(
             'Oil Change Reminder',
-            f'Hello! This is your oil change reminder for your vehicle {record.vehicle.name}. Have a nice day',
-            'jakubnaiman97@gmail.com',  # Tvoje emailová adresa
-            [record.vehicle.owner.email],  # Email vlastníka vozidla
+            f'Hello! This is your oil change reminder for your vehicle {record.vehicle.name}. Have a nice day!',
+            'jakubnaiman97@gmail.com',  # FROM
+            [record.vehicle.owner.email],  # TO
             fail_silently=False,
         )
 
