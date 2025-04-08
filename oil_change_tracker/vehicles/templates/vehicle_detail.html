@@ -18,6 +18,7 @@
             <div class="card-body">
                 <h3>Last oil change date: {{ vehicle.oil_changes.date }}</h3>
                 <h3>Last oil change kilometrage: {{ vehicle.oil_changes.kilometrage }}</h3>
+                <h3>Next oil change reminder: {{ vehicle.oil_changes.next_reminder }}</h3>
             </div>
         </div>
     {% else %}
