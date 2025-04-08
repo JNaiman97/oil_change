@@ -9,6 +9,7 @@ class VehicleForm(forms.ModelForm):
 
 class OilChangeForm(forms.ModelForm):
     date = forms.DateField(
+        required=False,
         widget=forms.DateInput(
             attrs={
                 'placeholder': 'DD-MM-YYYY',
@@ -18,6 +19,7 @@ class OilChangeForm(forms.ModelForm):
         input_formats=['%d-%m-%Y']
     )
     next_reminder = forms.DateField(
+        required=False,
         widget=forms.DateInput(
             attrs={
                 'placeholder': 'DD-MM-YYYY',
