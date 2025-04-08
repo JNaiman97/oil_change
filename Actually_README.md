@@ -1,0 +1,1 @@
+v Settings je smazaný google app key, aby mohl být github repositář veřejný a nebyl to problém
