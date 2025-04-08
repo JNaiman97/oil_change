@@ -18,8 +18,8 @@ def send_reminders():
         send_mail(
             'Oil Change Reminder',
             f'Hello! This is your oil change reminder for your vehicle {record.vehicle.name}. Have a nice day!',
-            'jakubnaiman97@gmail.com',  # FROM
-            [record.vehicle.owner.email],  # TO
+            'jakubnaiman97@gmail.com',
+            [record.vehicle.owner.email],
             fail_silently=False,
         )
 
