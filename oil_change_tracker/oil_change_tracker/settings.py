@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'core',
     'users',
     'vehicles',
-    'reminders',
 ]
 
 MIDDLEWARE = [
