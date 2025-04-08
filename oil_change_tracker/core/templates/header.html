@@ -1,30 +1,45 @@
 <header>
-  <nav>
-    <ul>
-      <li>
-        <a href="{% url 'home' %}">Home</a>
-      </li>
-      <li>
-        <a href="{% url 'about' %}">About</a>
-      </li>
-      {% if user.is_authenticated %}
-      <li>
-                <form action="{% url 'logout' %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit">Logout</button>
-                </form>
-      </li>
-            {% else %}
-      <li>
-                <a href="{% url 'login' %}">Login</a>
-      </li>
-      <li>
-                <a href="{% url 'register' %}">Register</a>
-      </li>
-            {% endif %}
-        {% if user.is_authenticated %}
-            <a href="{% url 'vehicle_list' %}">Vehicle_list</a>
-        {% endif %}
-    </ul>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">Oil change tracker</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'vehicle_list' %}">My vehicle list</a>
+          </li>
+          {% endif %}
+        </ul>
+
+        <ul class="navbar-nav">
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <form class="d-flex" action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-outline-light btn-sm">Logout</button>
+            </form>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}">Register</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
   </nav>
 </header>

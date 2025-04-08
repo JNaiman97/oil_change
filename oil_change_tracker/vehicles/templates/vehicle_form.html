@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>{{ form.instance.pk|yesno:"Edit vehicle,Add vehicle" }}</h1>
+<div class="container">
+    <h1 class="my-4">{{ form.instance.pk|yesno:"Edit vehicle,Add vehicle" }}</h1>
 
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit"> Send</button>
-</form>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
 
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
 {% endblock %}

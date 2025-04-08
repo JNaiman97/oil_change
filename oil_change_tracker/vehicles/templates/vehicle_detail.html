@@ -1,27 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Vehicle Detail</h1>
+<div class="container">
+    <h1 class="my-4">Vehicle Detail</h1>
 
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3>Name: {{ vehicle.name }}</h3>
+            <h3>Brand: {{ vehicle.brand }}</h3>
+            <h3>Model: {{ vehicle.model }}</h3>
+            <h3>Engine: {{ vehicle.engine }}</h3>
+        </div>
+    </div>
 
-<h3>Name: {{ vehicle.name }}</h3>
-<h3>Brand: {{ vehicle.brand }}</h3>
-<h3>Model: {{ vehicle.model }}</h3>
-<h3>Engine: {{ vehicle.engine }}</h3>
-{% if vehicle.oil_changes %}
-    <h3>Last oil change date: {{ vehicle.oil_changes.date }}</h3>
-    <h3>Last oil change kilometrage: {{ vehicle.oil_changes.kilometrage }}</h3>
-{% else %}
-    <p>No oil change record yet.</p>
-{% endif %}
-<div>
-<a href="{% url 'vehicle_edit' vehicle.pk %}">Edit Vehicle</a>
+    {% if vehicle.oil_changes %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3>Last oil change date: {{ vehicle.oil_changes.date }}</h3>
+                <h3>Last oil change kilometrage: {{ vehicle.oil_changes.kilometrage }}</h3>
+            </div>
+        </div>
+    {% else %}
+        <p>No oil change record yet.</p>
+    {% endif %}
+
+    <div class="mb-3">
+        <a href="{% url 'vehicle_edit' vehicle.pk %}" class="btn btn-primary">Edit Vehicle</a>
+    </div>
+
+    {% if vehicle.oil_changes %}
+        <a href="{% url 'oilchange_edit' vehicle.oil_changes.pk %}" class="btn btn-warning">Edit Oil Change Record</a>
+    {% else %}
+        <a href="{% url 'oilchange_add' vehicle.pk %}" class="btn btn-success">Add Oil Change Record</a>
+    {% endif %}
 </div>
-{% if vehicle.oil_changes %}
-    <a href="{% url 'oilchange_edit' vehicle.oil_changes.pk %}">Edit oil change record</a>
-{% else %}
-    <a href="{% url 'oilchange_add' vehicle.pk %}">Add oil change record</a>
-{% endif %}
-
-
 {% endblock %}

@@ -1,21 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Vehicle List</h1>
-<a href="{% url 'vehicle_create' %}">Add new</a>
+<div class="container">
+    <h1 class="my-4">Vehicle List</h1>
 
-<ul>
-    {% for vehicle in vehicles %}
-        <li>
-        {% if vehicle.photo %}
-            <img src="{{ vehicle.photo.url }}" alt="Vehicle photo" width="200">
-        {% else %}
-            <p>No photo available</p>
-        {% endif %}
-            <a href="{% url 'vehicle_detail' vehicle.pk %}">{{ vehicle.name }}</a>
-            <a href="{% url 'vehicle_confirm_delete' vehicle.pk %}">Delete</a>
-        </li>
-    {% endfor %}
-</ul>
+    <a href="{% url 'vehicle_create' %}" class="btn btn-success mb-3">Add new</a>
 
+    <ul class="list-group">
+        {% for vehicle in vehicles %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                    {% if vehicle.photo %}
+                        <img src="{{ vehicle.photo.url }}" alt="Vehicle photo" class="img-thumbnail" width="100">
+                    {% else %}
+                        <p>No photo available</p>
+                    {% endif %}
+                    <a href="{% url 'vehicle_detail' vehicle.pk %}" class="ml-3">{{ vehicle.name }}</a>
+                </div>
+                <div>
+                    <a href="{% url 'vehicle_confirm_delete' vehicle.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

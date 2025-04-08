@@ -1,13 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Confirm Deletion</h1>
+<div class="container">
+    <h1 class="my-4">Confirm Deletion</h1>
 
-<p>Are you sure you want to delete vehicle<strong> {{ object.name }}</strong>?</p>
-<form method="post">
-  {% csrf_token %}
-  <button type="submit">Yes, delete</button>
-  <a href="{% url 'vehicle_list' %}"> Cancel</a>
-</form>
+    <p>Are you sure you want to delete vehicle <strong>{{ object.name }}</strong>?</p>
 
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <button type="submit" class="btn btn-danger">Yes, delete</button>
+        </div>
+    </form>
+
+    <a href="{% url 'vehicle_list' %}" class="btn btn-secondary">Cancel</a>
+</div>
 {% endblock %}
